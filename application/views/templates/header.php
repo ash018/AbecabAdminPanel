@@ -8,19 +8,19 @@
                     <title><?php echo $header;?></title>
 
                     <!-- Bootstrap Core CSS -->
-                    <link href="/PrescriptionManagementSoftware/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+                    <link href="/fifaadmin/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
                     <!-- MetisMenu CSS -->
-                    <link href="/PrescriptionManagementSoftware/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+                    <link href="/fifaadmin/assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
                     <!-- Custom CSS -->
-                    <link href="/PrescriptionManagementSoftware/assets/dist/css/sb-admin-2.css" rel="stylesheet">
+                    <link href="/fifaadmin/assets/dist/css/sb-admin-2.css" rel="stylesheet">
 
                     <!-- Morris Charts CSS -->
-                    <link href="/PrescriptionManagementSoftware/assets/vendor/morrisjs/morris.css" rel="stylesheet">
+                    <link href="/fifaadmin/assets/vendor/morrisjs/morris.css" rel="stylesheet">
 
                     <!-- Custom Fonts -->
-                    <link href="/PrescriptionManagementSoftware/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+                    <link href="/fifaadmin/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
                 </head>

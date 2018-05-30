@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Prescription Management System</a>
+        <a class="navbar-brand" href="index.html">FIFA Prediction Game Admin Panel</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -42,276 +42,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li>
                     <a href="<?php echo base_url(); ?>Dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
-                
                 <li>
                     <a href="#">
                         <i class="fa fa-wrench fa-fw"></i>
-                        User Manager
+                        Team Manager
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level" aria-expanded="true" style="">
                         <li>
-                            <a href="<?php echo base_url(); ?>UserManager">User List</a>
+                            <a href="<?php echo base_url("Fifaadmin"); ?>">Team List</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>UserManager/userCreate">User create</a>
+                            <a href="<?php echo base_url("Fifaadmin/createTeam"); ?>">Team Create</a>
                         </li>
                     </ul>
                 </li>
-
-                <li class="">
+                <li>
                     <a href="#">
-                        <i class="fa fa-sitemap fa-fw"></i>
-                        Doctor Management
-                        <span class="fa arrow"></span>
-                    </a>
-
-                    <ul class="nav nav-second-level" aria-expanded="true" style="">
-                        <li class="">
-                            <a href="#">
-                                Doctor Information
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList') ?>">New Doctor Info Creation</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorList') ?>">Doctor List</a>
-                                </li>
-                                
-                                
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Education
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducation') ?>">Doctor Education</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducationList') ?>">Doctor Education List</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Education Grade
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducationGrade') ?>">Doctor Education Grade</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducationGradeList') ?>">Doctor Education Grade List</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Education Institute
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducationInstitute') ?>">Doctor Education Institute</a>
-                                </li>
-                                
-                                <li>
-                                    <a href="<?php echo site_url('DocList/doctorEducationInstituteList') ?>">Doctor Education Institute List</a>
-                                </li>
-                                
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Clinic Type Information
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList/clinicTypeCreate') ?>">Create Clinic Type</a>
-                                </li>
-
-                                <li>
-                                    <a href="<?php echo site_url('DocList/clinicTypeList') ?>">Clinic Type List</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Clinic Information
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo site_url('DocList/clinicInfoCreate') ?>">New Clinic Info Creation</a>
-                                </li>
-
-                                <li>
-                                    <a href="<?php echo site_url('DocList/clinicList') ?>">Clinic List</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                </li>
-                <li <?php if(isset($active) && $active == 'drug' ){echo 'class="active"';}?>>
-                    <a href="#">
-                        <i class="fa fa-sitemap fa-fw"></i>
-                        Drug Management
+                        <i class="fa fa-wrench fa-fw"></i>
+                        Match Manager
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level" aria-expanded="true" style="">
-                        <li class="">
-                            <a href="#">
-                                Drug Type
-                                <span class="fa arrow"></span>
-                            </a>
-
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugTypelist' ?>">Drug Type List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugTypeCreate' ?>">Create Drug Type </a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="<?php echo base_url("Fifaadmin/matchList"); ?>">Match List</a>
                         </li>
-                        
-                         <li class="">
-                            <a href="#">
-                                Drug Category
-                                <span class="fa arrow"></span>
-                            </a>
-
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugCategoryList' ?>">Drug Category List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugCategoryCreate' ?>">Create Drug Category</a>
-                                </li>
-                            </ul>
+                        <li>
+                            <a href="<?php echo base_url("Fifaadmin/matchCreate"); ?>">Match Create</a>
                         </li>
-                        
-                        <li class="">
-                            <a href="#">
-                                Drug Sub Category
-                                <span class="fa arrow"></span>
-                            </a>
-
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugSubCategoryList' ?>">Sub Category List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugSubCategoryCreate' ?>">Create Sub Category</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li <?php if(isset($active) && $active == 'drug' ){echo 'class="active"';}?> >
-                            <a href="#">
-                                Drug
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugList' ?>">Drug List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugCreate' ?>">Create Drug</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li class="">
-                            <a href="#">
-                                Drug Strength
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugStrengthList' ?>">Drug Strength List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugStrengthCreate' ?>">Create Drug Strength</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li class="">
-                            <a href="#">
-                                Country
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugFromList' ?>">Country List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugFromCreate' ?>">Create Country</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        
-                        <li class="">
-                            <a href="#">
-                                Manufacturer
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/manufacturerList' ?>">Manufacturer List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/manufacturerCreate' ?>">Create Manufacturer</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li class="">
-                            <a href="#">
-                                Drug Application Method
-                                <span class="fa arrow"></span>
-                            </a>
-                            <ul class="nav nav-third-level" aria-expanded="true" style="">
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugAppMethodList' ?>">Drug Application List</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url() . 'DrugManagement/drugAppMethodCreate' ?>">Create Application Method</a>
-                                </li>
-                            </ul>
-                        </li>
-
                     </ul>
-                    
-                    
                 </li>
                 
-                <li>
-                    <a href="<?php echo base_url().'ACL'; ?>"><i class="fa fa-wrench fa-fw"></i> ACL</a>
-                </li>
+                
             </ul>
 
         </div>
