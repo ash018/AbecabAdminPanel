@@ -90,7 +90,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title" style="text-align: center">Edit Clinic Information</h4>
+                                                <h4 class="modal-title" style="text-align: center">Edit Team Name</h4>
                                             </div>
                                             <div id="editClinicModuleData" class="modal-body">
 
@@ -121,11 +121,29 @@
         <?php echo $footer; ?>
         <script src="/fifaadmin/assets/modulesupportjs/clinicManager.js"></script>
         <script type="text/javascript">
-            $(document).ready(function () {
-                var baseUrl = "<?php echo base_url(); ?>";
-                editClinic(baseUrl);
-                deleteClinic(baseUrl);
+                $(document).ready(function () {
+                    var baseUrl = "<?php echo base_url(); ?>";
+                    $(".btn-info").on('click',function(){
+                    var teamID = $(this).attr("data-node");
+                    console.log("hello"+teamID);
+                    $("#editClinicModuleData").empty();
+                $.ajax({
+                    url: baseUrl+"fifaadmin/getTeam",
+                    type: "get",
+                    data: "teamID="+teamID,
+                    cache: false,
+                    success: function(data){
+                        console.log('Return Data' + data);
+                        $("#editClinicModuleData").append(data);
+    //                    if(data == 0){
+    //                        $("#divUserId").attr('style','display : block');
+    //                        $("#saveUser").prop("disabled",true);
+    //                    }
+                    }
+                });
             });
+                    //deleteClinic(baseUrl);
+        });
         </script>
 
     </body>

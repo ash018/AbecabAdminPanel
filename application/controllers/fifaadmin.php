@@ -94,5 +94,36 @@ class Fifaadmin extends MY_Controller{
         redirect('Fifaadmin/matchList');
     }
     
+    public function getTeam() {
+        $teamId = $this->input->get("teamID", TRUE);
+        $data['teamData'] = $this->FifaAdminModel->checkTeamId($teamId);
+        $teamEditFrom = $this->load->view('fifaadmin/team_edit', $data, TRUE);
+        echo $teamEditFrom;
+    }
+    
+    public function updateTeam(){
+        $teamId = $this->input->post('teamID');
+        $teamName = $this->input->post('teamName');
+        
+        $result = $this->FifaAdminModel->updateTeam($teamId,$teamName);
+        //var_dump($teamName);
+        $notice = array();
+         if ($result) {
+             $notice = array(
+                 'type' => 1,
+                 'message' => 'Team Name Updated Successfully'
+             );
+         } else {
+             $notice = array(
+                 'type' => 0,
+                 'message' => 'Error Has Occurred, Please Insert Right Info'
+             );
+         }
+        $this->session->set_userdata('notifyuser', $notice);
+        redirect('fifaadmin');
+        
+        
+    }
+    
 }
 ?>
