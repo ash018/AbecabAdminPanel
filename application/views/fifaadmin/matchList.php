@@ -62,23 +62,29 @@
                                             <th>SL</th>
                                             <th>Match Name</th>
                                             <th>Round</th>
-                                            <th>Teams</th>
                                             <th>Match Time</th>
-                                            <th>Winner</th>
+                                            <th>Match Status</th>
                                             <th colspan="2" style="text-align:center">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $x = 1;
-                                        foreach ($allTeam as $row) {
+                                        <?php $x = 1;// MatchID,MatchName, MatchTime, WinningTeam,  RoundName
+                                        foreach ($allMatch as $row) {
                                                 ?>
                                             
                                                 <tr>
                                                     <td><?php echo $x; ?> </td>
-                                                    <td><?php echo $row['Name']; ?></td>
+                                                    <td><?php echo $row['MatchName']; ?></td>
+                                                    <td><?php echo $row['RoundName']; ?></td>
+                                                    <td><?php echo $row['MatchTime']; ?></td>
+                                                    <td><?php if($row['WinningTeam'] != ''){ echo 'Match Finish';} else {echo 'Pending';} ?></td>
                                                     <td>
-                                                        <button id="<?php echo $row['ID']; ?>" class="btn btn-info btn-adn  editClinicGetData" style="margin-left: 30%" data-toggle="modal"
-                                                                data-target="#myModal" data-node="<?php echo $row['ID']; ?>">Edit
+                                                        <button id="<?php echo $row['MatchID']; ?>" class="btn btn-info btn-adn  editClinicGetData" style="margin-left: 30%" data-toggle="modal"
+                                                                data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Score Update
+                                                        </button>
+                                                        
+                                                        <button id="<?php echo $row['MatchID']; ?>" class="btn btn-info btn-adn  editClinicGetData" style="margin-left: 30%" data-toggle="modal"
+                                                                data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Edit
                                                         </button>
                                                     </td>
 
@@ -94,7 +100,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title" style="text-align: center">Edit Clinic Information</h4>
+                                                <h4 class="modal-title" style="text-align: center">Edit Match Info</h4>
                                             </div>
                                             <div id="editClinicModuleData" class="modal-body">
 

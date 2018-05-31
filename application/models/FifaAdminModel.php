@@ -28,7 +28,10 @@ class FifaAdminModel extends CI_Model {
         return $result;
     }
     function all_match(){
-        
+        $sql = "SELECT a.ID as MatchID, a.Name as MatchName, a.MatchTime as MatchTime, a.MatchPartyIDWinner as WinningTeam, b.Name as RoundName FROM Match a, RoundTable b WHERE a.RoundTableID = b.ID;";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
     }
     
     function save_match($matchName, $roundTable, $matchTime){

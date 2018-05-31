@@ -48,7 +48,7 @@ class Fifaadmin extends MY_Controller{
     
     public function matchList(){
         $data['header'] = 'Match List';
-        
+        $data['allMatch'] = $this->FifaAdminModel->all_match();
         $data['Header'] = $this->load->view('templates/header', $data,TRUE);
         $data['leftMenu'] = $this->load->view('templates/left_menu','',TRUE);
         $data['footer'] = $this->load->view('templates/footer', '',TRUE);
@@ -74,12 +74,24 @@ class Fifaadmin extends MY_Controller{
         $teamIdB = $this->input->post('TeamIdB', TRUE);
         $matchDT = $matchDate . ' ' .$matchTime;
         $matchId = $this->FifaAdminModel->save_match($matchName, $round, $matchDT);
-        $this->FifaAdminModel->save_match_party($matchId, $teamIdA);
-        $this->FifaAdminModel->save_match_party($matchId, $teamIdB);
-        redirect('Fifaadmin');
-        //echo 'matchName'. $matchName . ' round '.$round. ' matchDate '. $matchDate . ' matchTime ' . $matchTime . ' teamIdB ' .$teamIdB ;
-        //exit();
+        $resultA = $this->FifaAdminModel->save_match_party($matchId, $teamIdA);
+        $resultB = $this->FifaAdminModel->save_match_party($matchId, $teamIdB);
         
+        $notice = array();
+        if ($resultA && $resultB) {
+            $notice = array(
+                'type' => 1,
+                'message' => 'Team Creation Success'
+            );
+        } else {
+            $notice = array(
+                'type' => 0,
+                'message' => 'Team Creation Fail !!!'
+            );
+        }
+        $this->session->set_userdata('notifyuser', $notice);
+        
+        redirect('Fifaadmin/matchList');
     }
     
 }
