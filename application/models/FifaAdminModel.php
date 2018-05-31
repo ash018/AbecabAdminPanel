@@ -62,11 +62,23 @@ class FifaAdminModel extends CI_Model {
     }
     
     function updateTeam($teamId,$teamName){
-        
         $sql ="UPDATE Party SET Name = '".$teamName."' WHERE ID = ".$teamId;
         $query = $this->db->query($sql);
         //$result = $query->result_array();
         return $query;
+    }
+    
+    function editMatch($matchId){
+        $sql = "SELECT ID, Name, RoundTableID, MatchTime, MatchPartyIDWinner FROM Match WHERE ID = $matchId;";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+    }
+    
+    function matchTeam($matchId){
+        $sql = "SELECT MatchID, PartyID FROM MatchParty WHERE MatchID = $matchId;";
+        $query = $this->db->query($sql);
+        return $query->result_array();
+        
     }
 }
 ?>

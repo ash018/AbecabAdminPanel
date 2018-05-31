@@ -121,9 +121,20 @@ class Fifaadmin extends MY_Controller{
          }
         $this->session->set_userdata('notifyuser', $notice);
         redirect('fifaadmin');
-        
-        
     }
     
+    public function editMatchInfo(){
+        $matchId = $this->input->get("matchId", TRUE);
+        $data['allTeam'] = $this->FifaAdminModel->all_party();
+        $data['allRound'] = $this->FifaAdminModel->all_round();
+        $data['matchInfo'] = $this->FifaAdminModel->editMatch($matchId);
+        $data['matchTeam'] = $this->FifaAdminModel->matchTeam($matchId);
+        $matchEditFrom = $this->load->view('fifaadmin/match_edit', $data, TRUE);
+        echo $matchEditFrom;
+    }
+    
+    public function updateMatch(){
+        
+    }
 }
 ?>

@@ -79,13 +79,13 @@
                                                     <td><?php echo $row['MatchTime']; ?></td>
                                                     <td><?php if($row['WinningTeam'] != ''){ echo 'Match Finish';} else {echo 'Pending';} ?></td>
                                                     <td>
-                                                        <button id="<?php echo $row['MatchID']; ?>" class="btn btn-info btn-adn  editClinicGetData" style="margin-left: 30%" data-toggle="modal"
-                                                                data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Score Update
-                                                        </button>
-                                                        
-                                                        <button id="<?php echo $row['MatchID']; ?>" class="btn btn-info btn-adn  editClinicGetData" style="margin-left: 30%" data-toggle="modal"
-                                                                data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Edit
-                                                        </button>
+                                                    <button id="<?php echo $row['MatchID'];?>" class="btn btn-info btn-adn   updateScore"  data-toggle="modal"
+                                                            data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Score Update
+                                                    </button>
+
+                                                    <button id="<?php echo $row['MatchID']; ?>" class="btn btn-info btn-adn  editMatch"  data-toggle="modal"
+                                                            data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Edit
+                                                    </button>
                                                     </td>
 
                                                 </tr>
@@ -102,7 +102,7 @@
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                 <h4 class="modal-title" style="text-align: center">Edit Match Info</h4>
                                             </div>
-                                            <div id="editClinicModuleData" class="modal-body">
+                                            <div id="editMatchData" class="modal-body">
 
                                             </div>
 
@@ -129,10 +129,12 @@
         <!-- /#page-wrapper -->
 
         <?php echo $footer; ?>
-        <script src="/fifaadmin/assets/modulesupportjs/clinicManager.js"></script>
+        <!--<script src="/fifaadmin/assets/modulesupportjs/clinicManager.js"></script>-->
+        <script src="/fifaadmin/assets/modulesupportjs/fifaadmin.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 var baseUrl = "<?php echo base_url(); ?>";
+                editMatch(baseUrl);
                 editClinic(baseUrl);
                 deleteClinic(baseUrl);
             });
