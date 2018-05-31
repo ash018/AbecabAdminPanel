@@ -49,5 +49,21 @@ class FifaAdminModel extends CI_Model {
         
         return $query;
     }
+    
+    function checkTeamId($teamId) {
+
+        $sql = "SELECT * FROM Party where ID = '$teamId';";
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        return $result;
+    }
+    
+    function updateTeam($teamId,$teamName){
+        
+        $sql ="UPDATE Party SET Name = '".$teamName."' WHERE ID = ".$teamId;
+        $query = $this->db->query($sql);
+        //$result = $query->result_array();
+        return $query;
+    }
 }
 ?>
