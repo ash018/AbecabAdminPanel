@@ -1,6 +1,8 @@
 function editMatch(url){
     
     $(".editMatch").on('click',function(){
+        $("#modalTitle").html("");
+        $("#modalTitle").html("Edit Match Info");
         var matchId = $(this).attr("data-node");
         console.log("hello"+matchId);
         $("#editMatchData").empty();
@@ -12,12 +14,29 @@ function editMatch(url){
                 success: function(data){
                     console.log('Return Data' + data);
                     $("#editMatchData").append(data);
-//                    if(data == 0){
-//                        $("#divUserId").attr('style','display : block');
-//                        $("#saveUser").prop("disabled",true);
-//                    }
                 }
             });
     });
+}
+
+function scoreUpdate(url){
+    $(".updateScore").on('click',function(){
+        $("#modalTitle").html("");
+        $("#modalTitle").html("Update Match Score");
+        var matchId = $(this).attr("data-node");
+        console.log("hello"+matchId);
+        $("#editMatchData").empty();
+        $.ajax({
+                url: url+"Fifaadmin/editScore",
+                type: "get",
+                data: {matchId : matchId},
+                cache: false,
+                success: function(data){
+                    console.log('Return Data' + data);
+                    $("#editMatchData").append(data);
+                }
+            });
+    });
+    
 }
 

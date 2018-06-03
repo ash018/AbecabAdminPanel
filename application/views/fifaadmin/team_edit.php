@@ -9,7 +9,7 @@ $teamName = $teamData[0]['Name'];
     </div>
     <!-- /.panel-heading -->
     <div class="panel-body">
-        <form id="editClinic" class="form-group" method="post" enctype="multipart/form-data" action="<?php echo base_url("fifaadmin/updateTeam") ?>">
+        <form id="editClinic" class="form-group" method="post" enctype="multipart/form-data" action="<?php echo base_url("fifaadmin/updateScore") ?>">
 
             <div class="form-group center">
                 <div class="row">

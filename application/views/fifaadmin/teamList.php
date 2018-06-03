@@ -100,10 +100,7 @@
 
                                     </div>
                                 </div>
-                                <div class="well">
-
-                                </div>
-
+                                
                             </div>
 
                         </div>

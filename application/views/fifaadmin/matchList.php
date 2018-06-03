@@ -2,8 +2,7 @@
 <html lang="en">
 
     <?php
-       // var_dump($leftMenu);
-        echo $Header;
+       echo $Header;
     ?>
 <body>
 
@@ -79,7 +78,7 @@
                                                     <td><?php echo $row['MatchTime']; ?></td>
                                                     <td><?php if($row['WinningTeam'] != ''){ echo 'Match Finish';} else {echo 'Pending';} ?></td>
                                                     <td>
-                                                    <button id="<?php echo $row['MatchID'];?>" class="btn btn-info btn-adn   updateScore"  data-toggle="modal"
+                                                    <button id="<?php echo $row['MatchID'];?>" class="btn btn-info btn-adn updateScore"  data-toggle="modal"
                                                             data-target="#myModal" data-node="<?php echo $row['MatchID']; ?>">Score Update
                                                     </button>
 
@@ -100,7 +99,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title" style="text-align: center">Edit Match Info</h4>
+                                                <h4 id="modalTitle" class="modal-title" style="text-align: center">Edit Match Info</h4>
                                             </div>
                                             <div id="editMatchData" class="modal-body">
 
@@ -110,10 +109,7 @@
 
                                     </div>
                                 </div>
-                                <div class="well">
-
-                                </div>
-
+                                
                             </div>
 
                         </div>
@@ -135,6 +131,7 @@
             $(document).ready(function () {
                 var baseUrl = "<?php echo base_url(); ?>";
                 editMatch(baseUrl);
+                scoreUpdate(baseUrl);
                 editClinic(baseUrl);
                 deleteClinic(baseUrl);
             });

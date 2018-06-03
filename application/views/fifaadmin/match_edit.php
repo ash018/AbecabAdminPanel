@@ -1,13 +1,20 @@
 <?php
 $matchId = $matchInfo[0]['ID'];
 $matchName = $matchInfo[0]['Name'];
-$matchDate = $matchInfo[0]['MatchTime'];
-$matchTime = $matchInfo[0]['MatchTime'];
+$mDatenTime =  explode(" ", $matchInfo[0]['MatchTime']);
+$matchDate = $mDatenTime[0];
+//$matchTime = $mDatenTime[1];<?php $date = date("H:i", strtotime($matchInfo[0]['MatchTime'])); echo "$date"; 
+$matchTime = "18:00:00";
+//echo $matchDate. '--'. $matchTime;
 $matchRound = $matchInfo[0]['RoundTableID'];
 $matchWinner = $matchInfo[0]['MatchPartyIDWinner'];
 
 $matchTeamA = $matchTeam[0]['PartyID'];
 $matchTeamB = $matchTeam[1]['PartyID'];
+
+
+$matchTeamIdA = $matchTeam[0]['ID'];
+$matchTeamIdB = $matchTeam[1]['ID'];
 
 ?>
 <div class="panel panel-default">
@@ -21,7 +28,10 @@ $matchTeamB = $matchTeam[1]['PartyID'];
             <div class="form-group center">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6">
-                        <input type="hidden" class="form-control" id="teamID" name="teamID" value="<?php echo $matchId; ?>" required="True">
+                        <input type="hidden" class="form-control" id="MatchId" name="MatchId" value="<?php echo $matchId; ?>" required="True">
+                        <input type="hidden" class="form-control" id="MatchTeamIdA" name="MatchTeamIdA" value="<?php echo $matchTeamIdA; ?>" required="True">
+                        <input type="hidden" class="form-control" id="MatchTeamIdB" name="MatchTeamIdB" value="<?php echo $matchTeamIdB; ?>" required="True">
+                        
                     </div>
 
                 </div>
@@ -31,7 +41,7 @@ $matchTeamB = $matchTeam[1]['PartyID'];
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <label>Match Name</label>
-                        <input type="text" class="form-control" id="teamName" name="teamName" value="<?php echo $matchName; ?>" placeholder="match Name" required="True">
+                        <input type="text" class="form-control" id="MatchName" name="MatchName" value="<?php echo $matchName; ?>" placeholder="match Name" required="True">
                     </div>
                 </div>
             </div>
@@ -51,7 +61,7 @@ $matchTeamB = $matchTeam[1]['PartyID'];
 
             <div class="form-group">
                 <label>Match Time</label>
-                <input type="time" class="form-control" placeholder="Contact No" value="<?php echo $matchDate;?>" id="MatchTime" name="MatchTime">
+                <input type="time" class="form-control" placeholder="Contact No" value="<?php $date = date("H:i", strtotime($matchInfo[0]['MatchTime'])); echo "$date"; ?>" id="MatchTime" name="MatchTime">
             </div>
 
             <div class="form-group">

@@ -134,7 +134,71 @@ class Fifaadmin extends MY_Controller{
     }
     
     public function updateMatch(){
+        $matchId = $this->input->post('MatchId', TRUE);
+        $matchName = $this->input->post('MatchName', TRUE);
+        $round =  $this->input->post('Round', TRUE);
+        $matchDate = $this->input->post('MatchDate', TRUE);
+        $matchTime = $this->input->post('MatchTime', TRUE);
+        $mTime = $matchDate.' '.$matchTime;
         
+        $matchTeamIdA =  $this->input->post('MatchTeamIdA', TRUE);
+        $matchTeamIdB = $this->input->post('MatchTeamIdB', TRUE);
+        $result = $this->FifaAdminModel->updateMatch($matchId, $matchName, $round, $mTime);
+        
+        $teamIdA = $this->input->post('TeamIdA', TRUE);
+        $teamIdB = $this->input->post('TeamIdB', TRUE);
+        
+        $resultA = $this->FifaAdminModel->updateMatchParty($matchId, $matchTeamIdA, $matchTeamIdB, $teamIdA, $teamIdB);
+        
+        $notice = array();
+         if ($result && $resultA ) {
+             $notice = array(
+                 'type' => 1,
+                 'message' => 'Match Info Updated Successfully'
+             );
+         } else {
+             $notice = array(
+                 'type' => 0,
+                 'message' => 'Error Has Occurred, Please Insert Right Info'
+             );
+         }
+        $this->session->set_userdata('notifyuser', $notice);
+        redirect('Fifaadmin/matchList');
+    }
+    
+    public function editScore(){
+        $matchId = $this->input->get("matchId", TRUE);
+        $data['matchInfo'] = $this->FifaAdminModel->editMatch($matchId);
+        $data['mpInfo'] = $this->FifaAdminModel->editScoure($matchId);
+        $editScore = $this->load->view('fifaadmin/score_edit', $data, TRUE);
+        echo $editScore;
+    }
+    
+    public function updateScore(){
+        $matchId = $this->input->post('MatchId', TRUE);
+        $mpIdA = $this->input->post('MPIdA', TRUE);
+        $mpIdB = $this->input->post('MPIdB', TRUE);
+        $teamScoreA = $this->input->post('TeamScoreA', TRUE);
+        $teamScoreB = $this->input->post('TeamScoreB', TRUE);
+        
+        $partyIdA = $this->input->post('PartyIdA', TRUE);
+        $partyIdB = $this->input->post('PartyIdB', TRUE);
+        
+        $result = $this->FifaAdminModel->updateScoreInMatchnMP($matchId, $mpIdA, $mpIdB, $teamScoreA, $teamScoreB, $partyIdA, $partyIdB);
+        $notice = array();
+         if ($result) {
+             $notice = array(
+                 'type' => 1,
+                 'message' => 'Match Score Updated Successfully'
+             );
+         } else {
+             $notice = array(
+                 'type' => 0,
+                 'message' => 'Error Has Occurred, Please Insert Right Info'
+             );
+         }
+        $this->session->set_userdata('notifyuser', $notice);
+        redirect('Fifaadmin/matchList');
     }
 }
 ?>
