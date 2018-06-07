@@ -66,7 +66,7 @@ $matchTeamIdB = $matchTeam[1]['ID'];
 
             <div class="form-group">
                 <label>Team A Select</label>
-                <select id="round" name="TeamIdA" multiple class="form-control">
+                <select id="round" name="TeamIdA" class="form-control">
                     <?php foreach ($allTeam as $row) { ?>
                         <option <?php if($row['ID'] == $matchTeamA){echo 'selected="selected"';}?> value="<?php echo $row['ID']; ?>"><?php echo $row['Name']; ?></option>
                     <?php } ?>
@@ -75,7 +75,7 @@ $matchTeamIdB = $matchTeam[1]['ID'];
 
             <div class="form-group">
                 <label>Team B Select</label>
-                <select id="round" name="TeamIdB" multiple class="form-control">
+                <select id="round" name="TeamIdB" class="form-control">
                     <?php foreach ($allTeam as $row) { ?>
                         <option <?php if($row['ID'] == $matchTeamB){echo 'selected="selected"';}?> value="<?php echo $row['ID']; ?>"><?php echo $row['Name']; ?></option>
                     <?php } ?>

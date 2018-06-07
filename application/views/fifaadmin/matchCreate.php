@@ -57,7 +57,7 @@
                                             
                                             <div class="form-group">
                                                 <label>Team A Select</label>
-                                                <select id="round" name="TeamIdA" multiple class="form-control">
+                                                <select id="round" name="TeamIdA" class="form-control">
                                                     <?php  foreach ($allTeam as $row) { ?>
                                                         <option value="<?php echo $row['ID']; ?>"><?php echo $row['Name']; ?></option>
                                                     <?php } ?>
@@ -66,24 +66,18 @@
                                             
                                             <div class="form-group">
                                                 <label>Team B Select</label>
-                                                <select id="round" name="TeamIdB" multiple class="form-control">
+                                                <select id="round" name="TeamIdB" class="form-control">
                                                     <?php  foreach ($allTeam as $row) { ?>
                                                         <option value="<?php echo $row['ID']; ?>"><?php echo $row['Name']; ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
                                             
-                                            
-
-                                            
-                                            
                                             <button type="reset" class="btn btn-danger">Reset</button>
                                             <button type="submit" id="saveDoctor" class="btn btn-primary">Save</button>
 
                                         </div>
-                                        <!-- /.col-lg-6 (nested) -->
                                         
-                                        <!-- /.col-lg-6 (nested) -->
                                     </form>
                                 </div>
                                 <!-- /.row (nested) -->
