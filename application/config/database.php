@@ -46,9 +46,33 @@
 */
 if (!defined('DB_SERVERGD')) define('DB_SERVERGD', "192.168.100.62");
 
+if (!defined('DB_DBGD')) define('DB_DBGD', "FIFAAbecab");
+
+if (!defined('DB_CONSTRINGGD'))define('DB_CONSTRINGGD', "DRIVER={SQL Server};SERVER=".DB_SERVERGD.";DATABASE=".DB_DBGD);
+
+$active_group = 'default';
+$active_record = TRUE;
+$db['default']['hostname'] = DB_CONSTRINGGD;
+$db['default']['username'] = "sa";
+$db['default']['password'] = "dataport";
+$db['default']['database'] = DB_DBGD;
+$db['default']['dbdriver'] = "odbc";
+$db['default']['dbprefix'] = "";
+$db['default']['pconnect'] = FALSE;
+$db['default']['db_debug'] = TRUE;
+$db['default']['cache_on'] = FALSE;
+$db['default']['cachedir'] = "";
+$db['default']['char_set'] = "utf8";
+$db['default']['dbcollat'] = "utf8_general_ci";
+$db['default']['swap_pre'] = '';
+$db['default']['autoinit'] = FALSE;
+$db['default']['stricton'] = FALSE;
+
+if (!defined('DB_SERVERGD')) define('DB_SERVERGD', "192.168.100.62");
+
 if (!defined('DB_DBGD')) define('DB_DBGD', "FIFAPrediction");
 
-if (!defined('DB_CONSTRINGGD'))define('DB_CONSTRINGGD', "DRIVER={SQL Server};SERVER=".DB_SERVERGD.";DATABASE=".DB_DBGD);                          
+if (!defined('DB_CONSTRINGGD'))define('DB_CONSTRINGGD', "DRIVER={SQL Server};SERVER=".DB_SERVERGD.";DATABASE=".DB_DBGD);
 
 $active_group = 'default';
 $active_record = TRUE;

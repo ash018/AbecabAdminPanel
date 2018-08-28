@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <style>
-   
+
 </style>
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
     <div class="navbar-header">
@@ -45,35 +45,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li>
                     <a href="#">
                         <i class="fa fa-wrench fa-fw"></i>
-                        Team Manager
+                        Winner Info
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level" aria-expanded="true" style="">
                         <li>
-                            <a href="<?php echo base_url("Fifaadmin"); ?>">Team List</a>
+                            <a href="<?php echo base_url("Fifaadmin"); ?>">Winner List</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url("Fifaadmin/createTeam"); ?>">Team Create</a>
+                            <a href="<?php echo base_url("Fifaadmin/createWinner"); ?>">Winner Create</a>
+                        </li>
+						<li>
+                            <a href="<?php echo base_url("Fifaadmin/bulkWinner"); ?>">Bulk Insert</a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-wrench fa-fw"></i>
-                        Match Manager
-                        <span class="fa arrow"></span>
-                    </a>
-                    <ul class="nav nav-second-level" aria-expanded="true" style="">
-                        <li>
-                            <a href="<?php echo base_url("Fifaadmin/matchList"); ?>">Match List</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url("Fifaadmin/matchCreate"); ?>">Match Create</a>
-                        </li>
-                    </ul>
-                </li>
-                
-                
+
+
+
+
+
             </ul>
 
         </div>
@@ -81,4 +72,3 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <!-- /.navbar-static-side -->
 </nav>
-
